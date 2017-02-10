@@ -19,6 +19,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.ServletContextInitializerBeans;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import com.alvachien.learning.java.acolingo2.entities.Member;
@@ -27,19 +28,18 @@ import com.alvachien.learning.java.acolingo2.repository.MemberRepository;
 @SpringBootApplication
 public class App extends SpringBootServletInitializer {
 
-	private static final Logger log = LoggerFactory.getLogger(Application.class);
+	private static final Logger log = LoggerFactory.getLogger(App.class);
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(Application.class);
+        return application.sources(App.class);
     }
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class);
+		SpringApplication.run(App.class);
 	}
 
 	@Bean
-
 	public CommandLineRunner demo(final MemberRepository repository) {
 	    return new CommandLineRunner() {
 			public void run(String... args) throws Exception {
